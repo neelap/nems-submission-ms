@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @FeignClient("get-submissions")
 public interface SubmissionService {
-    @RequestMapping(method = RequestMethod.GET, value = "/sub")
+    @RequestMapping(method = RequestMethod.GET, value = "/")
     public Iterable<Submission> getSubmissions();
 }
