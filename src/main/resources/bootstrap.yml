@@ -1,7 +1,7 @@
 ---
 spring:
   application:
-    name: get-submissions-1
+    name: get-submissions
   cloud:
     config:
-      uri: http://localhost:8001
+      uri: http://10.1.2.31:8001
