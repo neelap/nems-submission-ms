@@ -1,24 +1,23 @@
 package com.nems.ctx.ms.submission.clientcontroller;
 
-import com.nems.ctx.ms.submission.controller.SubmissionController;
 import com.nems.ctx.ms.submission.domain.Submission;
-import com.nems.ctx.ms.submission.loadbalancer.SubmissionClient;
+import com.nems.ctx.ms.submission.clientservice.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by NE281900 on 5/1/2016.
  */
 @RestController
-@EnableFeignClients
 public class SubmissionClientController {
     @Autowired
-    SubmissionClient submissionClient;
+    SubmissionService submissionService;
 
     @RequestMapping("/")
-    public Iterable<Submission> getSubmissions(){
-        return submissionClient.getSubmissions();
+    public @ResponseBody
+    Iterable<Submission> getSubmissions(){
+        return submissionService.getSubmissions();
     }
 }
