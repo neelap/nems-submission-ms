@@ -22,7 +22,7 @@ public class SubmissionClientController {
 
     @FeignClient("get-submissions")
     interface SubmissionClient {
-        @RequestMapping(value = "/sub", method = RequestMethod.GET)
+        @RequestMapping(value = "/submissions", method = RequestMethod.GET)
         public Iterable<Submission> getSubmissions();
     }
 }
