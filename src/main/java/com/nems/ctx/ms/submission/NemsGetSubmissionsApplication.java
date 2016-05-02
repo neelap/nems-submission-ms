@@ -18,7 +18,6 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 @EnableHystrix
 @EnableCircuitBreaker
 @EnableHystrixDashboard
-@EnableTurbine
 public class NemsGetSubmissionsApplication {
 
 	public static void main(String[] args) {
