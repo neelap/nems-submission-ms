@@ -2,6 +2,7 @@ package com.nems.ctx.ms.submission.controller;
 
 import com.nems.ctx.ms.submission.domain.Submission;
 import com.nems.ctx.ms.submission.repository.SubmissionRepository;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -20,8 +21,16 @@ public class SubmissionController {
     @Autowired
     SubmissionRepository submissionRepository;
 
+
     @RequestMapping("/submissions")
+    @HystrixCommand(fallbackMethod = "defaultgetSubmissions")
     public Iterable<Submission> getSubmissions() {
+        ServiceInstance localInstance = client.getLocalServiceInstance();
+        System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
+        int i = 1/0;
+        return submissionRepository.findAll();
+    }
+    public Iterable<Submission> defaultgetSubmissions() {
         ServiceInstance localInstance = client.getLocalServiceInstance();
         System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
         return submissionRepository.findAll();
