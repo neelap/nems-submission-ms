@@ -30,11 +30,11 @@ public class SubmissionController {
         int i = 1/0;
         return submissionRepository.findAll();
     }
-   // public Iterable<Submission> defaultgetSubmissions() {
-   //     ServiceInstance localInstance = client.getLocalServiceInstance();
-   //     System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
-   //     return submissionRepository.findAll();
-   // }
+    public Iterable<Submission> defaultgetSubmissions() {
+        ServiceInstance localInstance = client.getLocalServiceInstance();
+        System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
+        return submissionRepository.findAll();
+    }
 
     @RequestMapping("/submissions/{id}")
     public Submission getSubmission(@PathVariable int id) {
