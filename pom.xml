@@ -142,7 +142,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
-			<version>1.0.0.M4</version>
+			<version>1.0.0.RC2</version>
 		</dependency>
 
 		<dependency>
