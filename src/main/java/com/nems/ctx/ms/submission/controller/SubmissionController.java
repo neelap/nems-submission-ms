@@ -6,9 +6,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by NE281900 on 4/27/2016.
@@ -25,9 +23,8 @@ public class SubmissionController {
     @RequestMapping("/submissions")
     @HystrixCommand(fallbackMethod = "defaultgetSubmissions")
     public Iterable<Submission> getSubmissions() {
-        ServiceInstance localInstance = client.getLocalServiceInstance();
-        System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
-        int i = 1/0;
+        //ServiceInstance localInstance = client.getLocalServiceInstance();
+       // System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
         return submissionRepository.findAll();
     }
     public Iterable<Submission> defaultgetSubmissions() {
@@ -39,5 +36,10 @@ public class SubmissionController {
     @RequestMapping("/submissions/{id}")
     public Submission getSubmission(@PathVariable int id) {
         return submissionRepository.findOne(id);
+    }
+
+    @RequestMapping(value = "/submissions", method= RequestMethod.POST)
+    public Submission saveSubmission(@RequestBody Submission submission){
+        return submissionRepository.save(submission);
     }
 }
