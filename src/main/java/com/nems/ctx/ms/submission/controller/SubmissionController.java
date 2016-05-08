@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by NE281900 on 4/27/2016.
  */
 @RestController
-@EnableBinding(Source.class)
+//@EnableBinding(Source.class)
 public class SubmissionController {
     @Autowired
     DiscoveryClient client;
@@ -25,8 +25,8 @@ public class SubmissionController {
     @Autowired
     SubmissionRepository submissionRepository;
 
-    @Autowired
-    private MessageChannel output;
+  //  @Autowired
+  //  private MessageChannel output;
 
 
     @RequestMapping("/submissions")
@@ -50,7 +50,7 @@ public class SubmissionController {
 
     @RequestMapping(value = "/submissions", method= RequestMethod.POST)
     public Submission saveSubmission(@RequestBody Submission submission){
-        output.send(MessageBuilder.withPayload("Hello POST").build());
+      //  output.send(MessageBuilder.withPayload("Hello POST").build());
         return submissionRepository.save(submission);
     }
 }
