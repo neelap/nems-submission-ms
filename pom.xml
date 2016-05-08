@@ -56,7 +56,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Brixton.RC2</version>
+				<version>Angel.SR6</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -64,20 +64,6 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream-parent</artifactId>
 				<version>1.0.0.RC2</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-bus-parent</artifactId>
-				<version>1.1.0.BUILD-SNAPSHOT</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-sleuth</artifactId>
-				<version>1.1.0.M4</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -100,10 +86,6 @@
 			<groupId>com.oracle.jdbc</groupId>
 			<artifactId>ucp</artifactId>
 			<version>12.1.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-kafka</artifactId>
 		</dependency>
 
 		<dependency>
@@ -188,7 +170,6 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.1.0.Final</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
