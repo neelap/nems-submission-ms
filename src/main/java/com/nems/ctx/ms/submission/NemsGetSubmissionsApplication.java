@@ -19,7 +19,6 @@ import org.springframework.cloud.stream.messaging.Source;
 @EnableHystrix
 @EnableCircuitBreaker
 @EnableHystrixDashboard
-@EnableBinding(Source.class)
 public class NemsGetSubmissionsApplication {
 
 	public static void main(String[] args) {

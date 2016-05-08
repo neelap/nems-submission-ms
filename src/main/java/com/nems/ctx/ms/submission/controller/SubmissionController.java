@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by NE281900 on 4/27/2016.
  */
 @RestController
-//@EnableBinding(Source.class)
+@EnableBinding(Source.class)
 public class SubmissionController {
     @Autowired
     DiscoveryClient client;
