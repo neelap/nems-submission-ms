@@ -19,6 +19,7 @@ public class SubmissionClientController {
     @RequestMapping("/sub")
     public Iterable<Submission> getSubmissions() {
 
+
         return submissionClient.getSubmissions();
     }
 
