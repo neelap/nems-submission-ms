@@ -24,8 +24,8 @@ public class SubmissionController {
     @Autowired
     SubmissionRepository submissionRepository;
 
-  //  @Autowired
-  //  private MessageChannel output;
+    @Autowired
+    private MessageChannel output;
 
 
     @RequestMapping("/submissions")
@@ -33,7 +33,7 @@ public class SubmissionController {
     public Iterable<Submission> getSubmissions() {
         //ServiceInstance localInstance = client.getLocalServiceInstance();
        // System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
-       // output.send(MessageBuilder.withPayload("Hello GET").build());
+        output.send(MessageBuilder.withPayload("Hello GET").build());
         return submissionRepository.findAll();
     }
     public Iterable<Submission> defaultgetSubmissions() {
