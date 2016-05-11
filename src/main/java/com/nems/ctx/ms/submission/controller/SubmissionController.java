@@ -31,11 +31,12 @@ public class SubmissionController {
     @RequestMapping("/submissions")
     @HystrixCommand(fallbackMethod = "defaultgetSubmissions")
     public Iterable<Submission> getSubmissions() {
-        //ServiceInstance localInstance = client.getLocalServiceInstance();
-       // System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
+        ServiceInstance localInstance = client.getLocalServiceInstance();
+        System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
         output.send(MessageBuilder.withPayload("Hello GET").build());
         return submissionRepository.findAll();
     }
+
     public Iterable<Submission> defaultgetSubmissions() {
         ServiceInstance localInstance = client.getLocalServiceInstance();
         System.out.println(localInstance.getServiceId()+":"+localInstance.getHost()+":"+localInstance.getPort());
